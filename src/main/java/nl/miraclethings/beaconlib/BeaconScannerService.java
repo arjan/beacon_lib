@@ -23,6 +23,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Collection;
 import java.util.List;
 
+import nl.miraclethings.beaconlib.detector.BeaconZoneDetector;
 import nl.miraclethings.beaconlib.detector.DetectorResult;
 import nl.miraclethings.beaconlib.detector.GlimwormBeaconDetector;
 
@@ -37,7 +38,7 @@ public class BeaconScannerService extends Service implements BeaconConsumer, Ran
     private IForegroundListener mListener;
     private String mCurrentZone = null;
 
-    private IBeaconZoneDetector mDetector;
+    private BeaconZoneDetector mDetector;
 
     public interface ServiceConnectedCallback {
         void onBeaconServiceConnected(LocalBinder binder);

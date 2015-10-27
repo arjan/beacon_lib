@@ -18,7 +18,7 @@ import nl.miraclethings.beaconlib.ZoneMap;
  *
  * Created by Arjan on 23-9-15.
  */
-public class GlimwormBeaconDetector implements IBeaconZoneDetector {
+public class GlimwormBeaconDetector implements BeaconZoneDetector {
 
     static Logger logger = LoggerFactory.getLogger(GlimwormBeaconDetector.class);
 
