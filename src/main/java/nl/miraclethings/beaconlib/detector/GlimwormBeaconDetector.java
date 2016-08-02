@@ -9,6 +9,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 
+import javax.annotation.Nullable;
+
 import nl.miraclethings.beaconlib.Zone;
 import nl.miraclethings.beaconlib.ZoneMap;
 
@@ -64,6 +66,7 @@ public class GlimwormBeaconDetector implements BeaconZoneDetector {
         // filter out old beacons and beacons not belonging to any zone
         for (Iterator<BeaconWithTime> iterator = filteredBeacons.iterator(); iterator.hasNext(); ) {
             BeaconWithTime fb = iterator.next();
+            logger.info(" - observe beacon: {}", fb.toString());
             if (fb.isExpired()) {
                 iterator.remove();
                 continue;
@@ -122,6 +125,12 @@ public class GlimwormBeaconDetector implements BeaconZoneDetector {
         }
 
         return new DetectorResult(mCurrentZone, changed, "B: " + lastBeacon.getId3().toInt() + " Z: " + mCurrentZone);
+    }
+
+    @Nullable
+    @Override
+    public Beacon getLastBeacon() {
+        return lastBeacon;
     }
 
     private BeaconWithTime selectBestBeacon() {

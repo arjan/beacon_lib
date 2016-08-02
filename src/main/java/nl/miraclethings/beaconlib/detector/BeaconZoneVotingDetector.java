@@ -9,6 +9,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Nullable;
+
 import nl.miraclethings.beaconlib.Zone;
 import nl.miraclethings.beaconlib.ZoneMap;
 
@@ -75,6 +77,12 @@ public class BeaconZoneVotingDetector implements BeaconZoneDetector {
         }
         msg += " Z: " + mCurrentZone;
         return new DetectorResult(mCurrentZone, zoneChanged, msg);
+    }
+
+    @Override
+    @Nullable
+    public Beacon getLastBeacon() {
+        return null;
     }
 
     private boolean determineRegionWinner(String region, boolean hasMultiple) {

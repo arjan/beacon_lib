@@ -82,6 +82,10 @@ public class BeaconScannerService extends Service implements BeaconConsumer, Ran
         public void setZoneMap(ZoneMap map) {
             mDetector.setZoneMap(map);
         }
+
+        public Beacon getLastBeacon() {
+            return mDetector.getLastBeacon();
+        }
     }
 
     public interface IForegroundListener {
@@ -89,6 +93,7 @@ public class BeaconScannerService extends Service implements BeaconConsumer, Ran
         void setStatusMessage(String msg);
 
         void setCurrentRegion(String i);
+
     }
 
     private LocalBinder mBinder = new LocalBinder();

@@ -4,6 +4,8 @@ import org.altbeacon.beacon.Beacon;
 
 import java.util.Collection;
 
+import javax.annotation.Nullable;
+
 import nl.miraclethings.beaconlib.ZoneMap;
 
 /**
@@ -14,4 +16,7 @@ public interface BeaconZoneDetector {
     boolean isConfigured();
 
     DetectorResult run(Collection<Beacon> beacons);
+
+    @Nullable
+    Beacon getLastBeacon();
 }
